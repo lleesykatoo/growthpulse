@@ -1,0 +1,236 @@
+/* =========================================================
+   layout.css — каркас сторінок: контейнер, шапка, футер,
+   секції та макетні сітки.
+   Flexbox — для одновимірних рядів (шапка, навігація, футер),
+   Grid — для двовимірних сіток (картки, календар, форми).
+   Підхід mobile-first: базові стилі → ≥768px → ≥1024px → ≥1440px.
+   ========================================================= */
+
+/* ---------- Контейнер (12-колонкова сітка Figma) ---------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + 2 * var(--page-padding));
+  margin-inline: auto;
+  padding-inline: var(--page-padding);
+}
+
+/* ---------- Шапка (Flexbox) ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 68px;
+}
+
+.logo {
+  font-size: var(--fs-logo);
+  font-weight: var(--fw-black);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-dark);
+  white-space: nowrap;
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--color-primary);
+}
+
+/* Мобільне меню: панель, що випадає під шапкою */
+.site-nav {
+  position: absolute;
+  top: 100%;
+  left: calc(-1 * var(--page-padding));
+  right: calc(-1 * var(--page-padding));
+  display: none;
+  padding: var(--space-4) var(--page-padding) var(--space-6);
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 12px 24px rgb(15 18 34 / 8%);
+}
+
+.site-nav.is-open {
+  display: block;
+}
+
+.site-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-left: auto;
+}
+
+/* ---------- Секції ---------- */
+.section {
+  padding-block: var(--space-10);
+}
+
+.section--tight-top {
+  padding-top: 0;
+}
+
+.page-head {
+  padding-block: var(--space-10) var(--space-6);
+}
+
+.page-head__lead {
+  max-width: 60ch;
+  margin-top: var(--space-4);
+  font-size: var(--fs-lead);
+  font-style: italic;
+  color: var(--color-gray);
+}
+
+.section__title {
+  margin-bottom: var(--space-6);
+}
+
+/* ---------- Макетні сітки (Grid) ---------- */
+
+/* Картки кейсів і статей: 1 → 2 → 3 колонки (по 4 з 12 колонок макета) */
+.grid-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  list-style: none;
+  gap: var(--space-10) var(--gutter);
+}
+
+/* Основний вміст + бічна панель (бриф, консультація) */
+.layout-sidebar {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* ---------- Футер: смуга підписки (фон Border) ---------- */
+.site-footer {
+  margin-top: auto;
+  padding-block: var(--space-10) var(--space-6);
+  background: var(--color-border);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.site-footer__title {
+  margin-bottom: var(--space-3);
+  font-size: 1.125rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  list-style: none;
+}
+
+.footer-links a {
+  color: var(--color-dark);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgb(90 95 117 / 20%);
+  font-size: var(--fs-small);
+  color: var(--color-gray);
+}
+
+/* =========================================================
+   Медіазапити
+   ========================================================= */
+
+/* Планшет: ≥ 768px */
+@media (min-width: 768px) {
+  :root {
+    --page-padding: 32px;
+  }
+
+  .section {
+    padding-block: var(--space-12);
+  }
+
+  .page-head {
+    padding-block: var(--space-12) var(--space-8);
+  }
+
+  .grid-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+/* Десктоп: ≥ 1024px — горизонтальне меню, 3 колонки */
+@media (min-width: 1024px) {
+  .site-footer__inner {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  :root {
+    --page-padding: 48px;
+  }
+
+  .site-header__inner {
+    min-height: 88px;
+    gap: var(--space-8);
+  }
+
+  .site-nav {
+    position: static;
+    display: block;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .site-nav__list {
+    flex-direction: row;
+    gap: var(--space-4);
+  }
+
+  .grid-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-12) var(--space-12);
+  }
+
+  .layout-sidebar {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); /* 7 + 5 колонок з 12 */
+    gap: var(--space-12);
+  }
+}
+
+/* Макетна ширина Figma 1440: поля по 120px */
+@media (min-width: 1440px) {
+  :root {
+    --page-padding: 120px;
+  }
+}

@@ -1,0 +1,67 @@
+/* =========================================================
+   tokens.css — дизайн-токени, перенесені з дизайн-системи
+   Figma (сторінка «Design System», ПР № 2):
+   Color styles, Text styles, Layout grid, параметри Button.
+   ========================================================= */
+
+:root {
+  /* --- Color styles --- */
+  --color-primary: #5b3df5;        /* Primary — кнопки, мітки, акценти */
+  --color-primary-hover: #4426d9;  /* Button / State=Hover — темніший відтінок */
+  --color-primary-soft: #e8def8;   /* #E8DEF8 — світлий акцент */
+  --color-dark: #0f1222;           /* Dark — текст і заголовки */
+  --color-bg: #f6f7fb;             /* Background — фон блоків */
+  --color-border: #e2e4ee;         /* Border — рамки, фон футера, чипи */
+  --color-gray: #5a5f75;           /* Gray text — другорядний текст, вторинна кнопка */
+  --color-white: #ffffff;
+  --color-error: #c62a47;
+  --color-success: #13804a;
+
+  /* обкладинка картки (Rectangle у макеті): лавандовий → Primary */
+  --gradient-cover: linear-gradient(180deg, #b48fc9 0%, #9b7fe0 45%, #6352f5 100%);
+
+  /* --- Text styles (шрифт Inter) --- */
+  --font-base: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --fs-logo: clamp(1.375rem, 1.1rem + 1vw, 1.875rem);   /* лого — 30 */
+  --fs-h1: clamp(2rem, 1.25rem + 3.2vw, 3rem);           /* заголовок H1 — Bold 48 */
+  --fs-h2: clamp(1.375rem, 1.15rem + 1vw, 1.75rem);      /* заголовок H2 — 28 */
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;                                       /* звичайний текст — Regular 16 */
+  --fs-lead: clamp(1.0625rem, 0.98rem + 0.45vw, 1.375rem);
+  --fs-small: 0.875rem;
+  --fs-stat: clamp(2rem, 1.6rem + 1.4vw, 2.5rem);
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
+  --lh-tight: 1.15;
+  --lh-base: 1.6;
+
+  /* --- Layout grid: 12 колонок, margin 120, gutter 24 (кадр 1440×1024) --- */
+  --container-max: 1200px;   /* 1440 − 2 × 120 */
+  --gutter: 24px;
+  --page-padding: 16px;      /* mobile; збільшується в медіазапитах до 120 */
+
+  /* --- Відступи (крок 4) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* --- Радіуси, тіні --- */
+  --radius-btn: 10px;     /* Button: corner radius 10 */
+  --radius-chip: 8px;     /* Chip */
+  --radius-card: 16px;
+  --radius-cover: 12px;
+  --shadow-pop: 0 4px 12px rgb(15 18 34 / 8%), 0 16px 40px rgb(15 18 34 / 10%);
+
+  --transition: 0.2s ease;
+}
