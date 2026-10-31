@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +9,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&amp;display=swap">
   <link rel="stylesheet" href="css/main.css">
+  <!-- JavaScript: спершу ядро й дані, потім компоненти, сценарії сторінок і точка входу main.js -->
+  <script src="js/core/utils.js" defer></script>
+  <script src="js/core/validation.js" defer></script>
+  <script src="js/data/content.js" defer></script>
+  <script src="js/components/toast.js" defer></script>
+  <script src="js/components/modal.js" defer></script>
+  <script src="js/components/accordion.js" defer></script>
+  <script src="js/components/slider.js" defer></script>
+  <script src="js/components/tabs.js" defer></script>
+  <script src="js/features/navigation.js" defer></script>
+  <script src="js/features/language.js" defer></script>
+  <script src="js/features/cases.js" defer></script>
+  <script src="js/features/blog.js" defer></script>
+  <script src="js/features/brief.js" defer></script>
+  <script src="js/features/booking.js" defer></script>
+  <script src="js/features/subscribe.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
-<body>
+<body data-page="consultation">
   <a class="skip-link" href="#main" data-en="Skip to content">Перейти до вмісту</a>
 
   <header class="site-header">
@@ -41,7 +57,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="page-head" aria-labelledby="page-title">
       <div class="container">
         <h1 id="page-title" data-en="15-minute intro call">Вступна зустріч 15 хвилин</h1>
@@ -55,7 +71,7 @@
         <form class="booking" id="booking-form" novalidate aria-labelledby="booking-title">
           <div class="calendar" id="calendar">
             <div class="calendar__head">
-              <p class="calendar__month" id="calendar-month" aria-live="polite">Листопад 2026</p>
+              <p class="calendar__month" id="calendar-month" aria-live="polite">Календар</p>
               <div class="calendar__nav">
                 <button class="calendar__arrow" type="button" data-cal="prev" aria-label="Попередній місяць">‹</button>
                 <button class="calendar__arrow" type="button" data-cal="next" aria-label="Наступний місяць">›</button>
@@ -75,54 +91,111 @@
               <span class="calendar__time" id="calendar-picked">—</span>
             </div>
             <input type="hidden" name="date" id="booking-date">
+            <p class="field__error" id="date-error" role="alert"></p>
           </div>
 
           <div class="stack">
-            <fieldset>
-              <legend class="field__label">Вільний час (Київ, UTC+2)</legend>
+            <fieldset id="slots" data-required-group aria-describedby="slots-error">
+              <legend class="field__label">Вільний час (Київ, UTC+2) <span class="field__req" aria-hidden="true">*</span></legend>
               <div class="slots mt-6">
-              <div class="option">
-                <input class="option__input" type="radio" id="slot-0" name="time" value="10:00" required>
-                <label class="option__label" for="slot-0">10:00</label>
+                <div class="option">
+                  <input class="option__input" type="radio" id="slot-0" name="time" value="10:00">
+                  <label class="option__label" for="slot-0">10:00</label>
+                </div>
+                <div class="option">
+                  <input class="option__input" type="radio" id="slot-1" name="time" value="11:00">
+                  <label class="option__label" for="slot-1">11:00</label>
+                </div>
+                <div class="option">
+                  <input class="option__input" type="radio" id="slot-2" name="time" value="12:30">
+                  <label class="option__label" for="slot-2">12:30</label>
+                </div>
+                <div class="option">
+                  <input class="option__input" type="radio" id="slot-3" name="time" value="14:00">
+                  <label class="option__label" for="slot-3">14:00</label>
+                </div>
+                <div class="option">
+                  <input class="option__input" type="radio" id="slot-4" name="time" value="15:30">
+                  <label class="option__label" for="slot-4">15:30</label>
+                </div>
+                <div class="option">
+                  <input class="option__input" type="radio" id="slot-5" name="time" value="17:00">
+                  <label class="option__label" for="slot-5">17:00</label>
+                </div>
               </div>
-              <div class="option">
-                <input class="option__input" type="radio" id="slot-1" name="time" value="11:00">
-                <label class="option__label" for="slot-1">11:00</label>
-              </div>
-              <div class="option">
-                <input class="option__input" type="radio" id="slot-2" name="time" value="12:30">
-                <label class="option__label" for="slot-2">12:30</label>
-              </div>
-              <div class="option">
-                <input class="option__input" type="radio" id="slot-3" name="time" value="14:00">
-                <label class="option__label" for="slot-3">14:00</label>
-              </div>
-              <div class="option">
-                <input class="option__input" type="radio" id="slot-4" name="time" value="15:30">
-                <label class="option__label" for="slot-4">15:30</label>
-              </div>
-              <div class="option">
-                <input class="option__input" type="radio" id="slot-5" name="time" value="17:00">
-                <label class="option__label" for="slot-5">17:00</label>
-              </div>
-              </div>
+              <p class="field__error" id="slots-error"></p>
             </fieldset>
             <div class="form-grid form-grid--2">
               <div class="field">
-                <label class="field__label" for="book-name">Ім'я</label>
-                <input class="input" id="book-name" name="name" type="text" autocomplete="name" required>
+                <label class="field__label" for="book-name">Ім'я <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="input" id="book-name" name="name" type="text" required autocomplete="name" minlength="2" data-validate="name" aria-describedby="book-name-error">
+                <p class="field__error" id="book-name-error"></p>
               </div>
               <div class="field">
-                <label class="field__label" for="book-email">Email</label>
-                <input class="input" id="book-email" name="email" type="email" autocomplete="email" placeholder="name@company.com" required>
+                <label class="field__label" for="book-email">Email <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="input" id="book-email" name="email" type="email" required placeholder="name@company.com" autocomplete="email" aria-describedby="book-email-error">
+                <p class="field__error" id="book-email-error"></p>
               </div>
             </div>
-            <p class="form-status" role="status" aria-live="polite"></p>
+              <div class="field">
+                <label class="field__label" for="book-phone">Телефон <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="input" id="book-phone" name="phone" type="tel" required placeholder="+380 67 123 45 67" autocomplete="tel" aria-describedby="book-phone-error">
+                <p class="field__error" id="book-phone-error"></p>
+              </div>
+            <p class="form-status" id="booking-status" role="status" aria-live="polite"></p>
             <div class="btn-group">
               <button class="btn btn--primary btn--lg" type="submit" data-en="Book a call">Забронювати</button>
             </div>
           </div>
         </form>
+      </div>
+    </section>
+
+    <section class="section section--muted" aria-labelledby="faq-title">
+      <div class="container narrow">
+        <h2 class="section__title" id="faq-title">Часті питання</h2>
+        <div class="accordion" id="faq">
+          <div class="accordion__item" data-accordion-item>
+            <h3 class="accordion__heading">
+              <button class="accordion__btn" type="button" id="faq-btn-0" aria-expanded="false" aria-controls="faq-panel-0" data-accordion-btn>Чи безкоштовна вступна зустріч?<span class="accordion__icon" aria-hidden="true"></span></button>
+            </h3>
+            <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-btn-0" hidden>
+              <p>Так. Перші 15 хвилин ми знайомимося з вашим завданням і пропонуємо, з чого почати. Це ні до чого не зобов'язує.</p>
+            </div>
+          </div>
+          <div class="accordion__item" data-accordion-item>
+            <h3 class="accordion__heading">
+              <button class="accordion__btn" type="button" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1" data-accordion-btn>Що підготувати до розмови?<span class="accordion__icon" aria-hidden="true"></span></button>
+            </h3>
+            <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1" hidden>
+              <p>Достатньо коротко описати продукт, цільову аудиторію та бажаний результат. Якщо є дані про попередні кампанії — прихопіть їх.</p>
+            </div>
+          </div>
+          <div class="accordion__item" data-accordion-item>
+            <h3 class="accordion__heading">
+              <button class="accordion__btn" type="button" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2" data-accordion-btn>Як проходить зустріч?<span class="accordion__icon" aria-hidden="true"></span></button>
+            </h3>
+            <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2" hidden>
+              <p>Онлайн у Google Meet. Посилання на зустріч надійде на ваш email одразу після бронювання.</p>
+            </div>
+          </div>
+          <div class="accordion__item" data-accordion-item>
+            <h3 class="accordion__heading">
+              <button class="accordion__btn" type="button" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3" data-accordion-btn>Як перенести або скасувати бронювання?<span class="accordion__icon" aria-hidden="true"></span></button>
+            </h3>
+            <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3" hidden>
+              <p>Відповідайте на лист-підтвердження або напишіть на hello@growthpulse.ua щонайменше за 2 години до початку.</p>
+            </div>
+          </div>
+          <div class="accordion__item" data-accordion-item>
+            <h3 class="accordion__heading">
+              <button class="accordion__btn" type="button" id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4" data-accordion-btn>Якою мовою можна спілкуватися?<span class="accordion__icon" aria-hidden="true"></span></button>
+            </h3>
+            <div class="accordion__panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4" hidden>
+              <p>Українською або англійською — оберіть зручну вам мову.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -134,11 +207,11 @@
           <h2 class="site-footer__title" id="digest-title" data-en="GrowthPulse digest">Дайджест від GrowthPulse</h2>
           <form class="subscribe-form" novalidate data-form="subscribe">
             <div class="subscribe">
-              <label class="visually-hidden" for="subscribe-email">Ваш email</label>
-              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required>
+              <label class="visually-hidden" for="subscribe-email">Email</label>
+              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required aria-describedby="subscribe-email-error">
               <button class="btn btn--primary" type="submit" data-en="Subscribe">Підписатися</button>
             </div>
-            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="field__error" id="subscribe-email-error"></p>
           </form>
         </section>
 
@@ -158,5 +231,7 @@
       </div>
     </div>
   </footer>
+
+  <button class="to-top" type="button" aria-label="Повернутися нагору">↑</button>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +9,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&amp;display=swap">
   <link rel="stylesheet" href="css/main.css">
+  <!-- JavaScript: спершу ядро й дані, потім компоненти, сценарії сторінок і точка входу main.js -->
+  <script src="js/core/utils.js" defer></script>
+  <script src="js/core/validation.js" defer></script>
+  <script src="js/data/content.js" defer></script>
+  <script src="js/components/toast.js" defer></script>
+  <script src="js/components/modal.js" defer></script>
+  <script src="js/components/accordion.js" defer></script>
+  <script src="js/components/slider.js" defer></script>
+  <script src="js/components/tabs.js" defer></script>
+  <script src="js/features/navigation.js" defer></script>
+  <script src="js/features/language.js" defer></script>
+  <script src="js/features/cases.js" defer></script>
+  <script src="js/features/blog.js" defer></script>
+  <script src="js/features/brief.js" defer></script>
+  <script src="js/features/booking.js" defer></script>
+  <script src="js/features/subscribe.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
-<body>
+<body data-page="home">
   <a class="skip-link" href="#main" data-en="Skip to content">Перейти до вмісту</a>
 
   <header class="site-header">
@@ -41,7 +57,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
         <h1 class="hero__title" id="hero-title" data-en="Creative marketing that counts results">Креативний маркетинг, що рахує результат</h1>
@@ -57,37 +73,67 @@
       <div class="container">
         <h2 class="section__title" id="featured-title" data-en="Featured cases">Обрані кейси</h2>
         <div class="grid-cards">
-        <article class="card" data-category="pr">
-          <div class="card__cover" aria-hidden="true"></div>
-          <p class="card__meta">PR · E-commerce</p>
-          <h3 class="card__title">FreshBox</h3>
-          <p class="case-result">
-            <strong class="case-result__value">+240%</strong>
-          </p>
-          <p class="case-result__label" data-en="*reach in 3 months">*охоплення за 3 міс.</p>
-        </article>
-
-        <article class="card" data-category="smm">
-          <div class="card__cover" aria-hidden="true"></div>
-          <p class="card__meta">SMM · B2B</p>
-          <h3 class="card__title">LogiTrans</h3>
-          <p class="case-result">
-            <strong class="case-result__value">3,2x</strong>
-          </p>
-          <p class="case-result__label" data-en="*more leads">*більше лідів</p>
-        </article>
-
-        <article class="card" data-category="branding">
-          <div class="card__cover" aria-hidden="true"></div>
-          <p class="card__meta">Branding · IT</p>
-          <h3 class="card__title">CodeNest</h3>
-          <p class="case-result">
-            <strong class="case-result__value">+58%</strong>
-          </p>
-          <p class="case-result__label" data-en="*brand awareness">*впізнаваність бренду</p>
-        </article>
+          <article class="card" data-category="pr">
+            <div class="card__cover" aria-hidden="true"></div>
+            <p class="card__meta">PR · E-commerce</p>
+            <h3 class="card__title"><a href="cases.html#freshbox">FreshBox</a></h3>
+            <p class="case-result"><strong class="case-result__value">+240%</strong></p>
+            <p class="case-result__label" data-en="*reach in 3 months">*охоплення за 3 міс.</p>
+          </article>
+          <article class="card" data-category="smm">
+            <div class="card__cover" aria-hidden="true"></div>
+            <p class="card__meta">SMM · B2B</p>
+            <h3 class="card__title"><a href="cases.html#logitrans">LogiTrans</a></h3>
+            <p class="case-result"><strong class="case-result__value">3,2x</strong></p>
+            <p class="case-result__label" data-en="*more leads">*більше лідів</p>
+          </article>
+          <article class="card" data-category="branding">
+            <div class="card__cover" aria-hidden="true"></div>
+            <p class="card__meta">Branding · IT</p>
+            <h3 class="card__title"><a href="cases.html#codenest">CodeNest</a></h3>
+            <p class="case-result"><strong class="case-result__value">+58%</strong></p>
+            <p class="case-result__label" data-en="*brand awareness">*впізнаваність бренду</p>
+          </article>
         </div>
         <a class="link-arrow" href="cases.html" data-en="All cases →">Усі кейси →</a>
+      </div>
+    </section>
+
+    <section class="section section--muted" aria-labelledby="process-title">
+      <div class="container">
+        <h2 class="section__title" id="process-title" data-en="How we work">Як ми працюємо</h2>
+        <div class="slider" id="process-slider" role="region" aria-roledescription="карусель" aria-label="Етапи роботи">
+          <div class="slider__viewport">
+            <ol class="slider__track" data-slider-track>
+              <li class="slide" data-slide>
+                <span class="slide__num">01</span>
+                <h3 class="slide__title">Аналіз</h3>
+                <p class="slide__text">Заповнюєте бриф, а ми проводимо аудит бренду, конкурентів і поточних каналів комунікації.</p>
+              </li>
+              <li class="slide" data-slide>
+                <span class="slide__num">02</span>
+                <h3 class="slide__title">Стратегія</h3>
+                <p class="slide__text">Формуємо цілі й KPI, обираємо канали та розподіляємо бюджет — усе в одному медіаплані.</p>
+              </li>
+              <li class="slide" data-slide>
+                <span class="slide__num">03</span>
+                <h3 class="slide__title">Запуск</h3>
+                <p class="slide__text">Готуємо креативи, запускаємо PR, SMM і рекламу, щотижня оптимізуємо кампанії.</p>
+              </li>
+              <li class="slide" data-slide>
+                <span class="slide__num">04</span>
+                <h3 class="slide__title">Звіт</h3>
+                <p class="slide__text">Щомісяця показуємо результати в цифрах і пропонуємо наступні кроки для зростання.</p>
+              </li>
+            </ol>
+          </div>
+          <div class="slider__controls">
+            <button class="slider__arrow" type="button" data-slider-prev aria-label="Попередній етап">‹</button>
+            <div class="slider__dots" data-slider-dots></div>
+            <button class="slider__arrow" type="button" data-slider-next aria-label="Наступний етап">›</button>
+          </div>
+          <p class="visually-hidden" data-slider-status aria-live="polite"></p>
+        </div>
       </div>
     </section>
   </main>
@@ -99,11 +145,11 @@
           <h2 class="site-footer__title" id="digest-title" data-en="GrowthPulse digest">Дайджест від GrowthPulse</h2>
           <form class="subscribe-form" novalidate data-form="subscribe">
             <div class="subscribe">
-              <label class="visually-hidden" for="subscribe-email">Ваш email</label>
-              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required>
+              <label class="visually-hidden" for="subscribe-email">Email</label>
+              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required aria-describedby="subscribe-email-error">
               <button class="btn btn--primary" type="submit" data-en="Subscribe">Підписатися</button>
             </div>
-            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="field__error" id="subscribe-email-error"></p>
           </form>
         </section>
 
@@ -123,5 +169,7 @@
       </div>
     </div>
   </footer>
+
+  <button class="to-top" type="button" aria-label="Повернутися нагору">↑</button>
 </body>
 </html>

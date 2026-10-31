@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +9,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&amp;display=swap">
   <link rel="stylesheet" href="css/main.css">
+  <!-- JavaScript: спершу ядро й дані, потім компоненти, сценарії сторінок і точка входу main.js -->
+  <script src="js/core/utils.js" defer></script>
+  <script src="js/core/validation.js" defer></script>
+  <script src="js/data/content.js" defer></script>
+  <script src="js/components/toast.js" defer></script>
+  <script src="js/components/modal.js" defer></script>
+  <script src="js/components/accordion.js" defer></script>
+  <script src="js/components/slider.js" defer></script>
+  <script src="js/components/tabs.js" defer></script>
+  <script src="js/features/navigation.js" defer></script>
+  <script src="js/features/language.js" defer></script>
+  <script src="js/features/cases.js" defer></script>
+  <script src="js/features/blog.js" defer></script>
+  <script src="js/features/brief.js" defer></script>
+  <script src="js/features/booking.js" defer></script>
+  <script src="js/features/subscribe.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
-<body>
+<body data-page="error">
   <a class="skip-link" href="#main" data-en="Skip to content">Перейти до вмісту</a>
 
   <header class="site-header">
@@ -41,7 +57,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="container error-page" aria-labelledby="page-title">
       <h1 class="error-page__title" id="page-title" data-en="Something went wrong">На сайті виникла помилка</h1>
       <p class="error-page__text">Напишіть нам, будь ласка, на пошту з приводу Ваших побажань: <a href="mailto:hello@growthpulse.ua">hello@growthpulse.ua</a></p>
@@ -56,11 +72,11 @@
           <h2 class="site-footer__title" id="digest-title" data-en="GrowthPulse digest">Дайджест від GrowthPulse</h2>
           <form class="subscribe-form" novalidate data-form="subscribe">
             <div class="subscribe">
-              <label class="visually-hidden" for="subscribe-email">Ваш email</label>
-              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required>
+              <label class="visually-hidden" for="subscribe-email">Email</label>
+              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required aria-describedby="subscribe-email-error">
               <button class="btn btn--primary" type="submit" data-en="Subscribe">Підписатися</button>
             </div>
-            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="field__error" id="subscribe-email-error"></p>
           </form>
         </section>
 
@@ -80,5 +96,7 @@
       </div>
     </div>
   </footer>
+
+  <button class="to-top" type="button" aria-label="Повернутися нагору">↑</button>
 </body>
 </html>

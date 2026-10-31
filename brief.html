@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +9,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&amp;display=swap">
   <link rel="stylesheet" href="css/main.css">
+  <!-- JavaScript: спершу ядро й дані, потім компоненти, сценарії сторінок і точка входу main.js -->
+  <script src="js/core/utils.js" defer></script>
+  <script src="js/core/validation.js" defer></script>
+  <script src="js/data/content.js" defer></script>
+  <script src="js/components/toast.js" defer></script>
+  <script src="js/components/modal.js" defer></script>
+  <script src="js/components/accordion.js" defer></script>
+  <script src="js/components/slider.js" defer></script>
+  <script src="js/components/tabs.js" defer></script>
+  <script src="js/features/navigation.js" defer></script>
+  <script src="js/features/language.js" defer></script>
+  <script src="js/features/cases.js" defer></script>
+  <script src="js/features/blog.js" defer></script>
+  <script src="js/features/brief.js" defer></script>
+  <script src="js/features/booking.js" defer></script>
+  <script src="js/features/subscribe.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
-<body>
+<body data-page="brief">
   <a class="skip-link" href="#main" data-en="Skip to content">Перейти до вмісту</a>
 
   <header class="site-header">
@@ -41,7 +57,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="page-head" aria-labelledby="page-title">
       <div class="container">
         <a class="btn btn--primary" href="cases.html" data-en="Back">Назад</a>
@@ -57,10 +73,10 @@
             <span class="progress__bar"></span>
           </div>
 
-          <fieldset class="brief__step" data-step="1">
-            <legend class="brief__question">Яка послуга потрібна?</legend>
+          <fieldset class="brief__step" data-step="1" data-required-group aria-describedby="service-error">
+            <legend class="brief__question" tabindex="-1">Яка послуга потрібна?</legend>
             <div class="option">
-              <input class="option__input" type="radio" id="service-0" name="service" value="pr" checked required>
+              <input class="option__input" type="radio" id="service-0" name="service" value="pr">
               <label class="option__label" for="service-0">PR</label>
             </div>
             <div class="option">
@@ -75,12 +91,13 @@
               <input class="option__input" type="radio" id="service-3" name="service" value="branding">
               <label class="option__label" for="service-3">Branding</label>
             </div>
+            <p class="field__error" id="service-error"></p>
           </fieldset>
 
-          <fieldset class="brief__step" data-step="2">
-            <legend class="brief__question">Який орієнтовний бюджет на місяць?</legend>
+          <fieldset class="brief__step" data-step="2" data-required-group aria-describedby="budget-error">
+            <legend class="brief__question" tabindex="-1">Який орієнтовний бюджет на місяць?</legend>
             <div class="option">
-              <input class="option__input" type="radio" id="budget-0" name="budget" value="lt1k" required>
+              <input class="option__input" type="radio" id="budget-0" name="budget" value="lt1k">
               <label class="option__label" for="budget-0">до $1 000</label>
             </div>
             <div class="option">
@@ -95,12 +112,13 @@
               <input class="option__input" type="radio" id="budget-3" name="budget" value="gt5k">
               <label class="option__label" for="budget-3">понад $5 000</label>
             </div>
+            <p class="field__error" id="budget-error"></p>
           </fieldset>
 
-          <fieldset class="brief__step" data-step="3">
-            <legend class="brief__question">Коли плануєте старт?</legend>
+          <fieldset class="brief__step" data-step="3" data-required-group aria-describedby="start-error">
+            <legend class="brief__question" tabindex="-1">Коли плануєте старт?</legend>
             <div class="option">
-              <input class="option__input" type="radio" id="start-0" name="start" value="asap" required>
+              <input class="option__input" type="radio" id="start-0" name="start" value="asap">
               <label class="option__label" for="start-0">Якнайшвидше</label>
             </div>
             <div class="option">
@@ -115,31 +133,42 @@
               <input class="option__input" type="radio" id="start-3" name="start" value="unknown">
               <label class="option__label" for="start-3">Ще визначаємося</label>
             </div>
+            <p class="field__error" id="start-error"></p>
           </fieldset>
 
           <fieldset class="brief__step" data-step="4">
-            <legend class="brief__question">Контактні дані</legend>
+            <legend class="brief__question" tabindex="-1">Контактні дані</legend>
+            <p class="form-hint">Поля з <span aria-hidden="true">*</span> обов'язкові.</p>
             <div class="form-grid form-grid--2">
               <div class="field">
-                <label class="field__label" for="brief-name">Ім'я</label>
-                <input class="input" id="brief-name" name="name" type="text" autocomplete="name" required>
+                <label class="field__label" for="brief-name">Ім'я <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="input" id="brief-name" name="name" type="text" required autocomplete="name" minlength="2" data-validate="name" aria-describedby="brief-name-error">
+                <p class="field__error" id="brief-name-error"></p>
               </div>
               <div class="field">
-                <label class="field__label" for="brief-email">Email</label>
-                <input class="input" id="brief-email" name="email" type="email" autocomplete="email" placeholder="name@company.com" required>
+                <label class="field__label" for="brief-email">Email <span class="field__req" aria-hidden="true">*</span></label>
+                <input class="input" id="brief-email" name="email" type="email" required placeholder="name@company.com" autocomplete="email" aria-describedby="brief-email-error">
+                <p class="field__error" id="brief-email-error"></p>
               </div>
             </div>
-            <div class="field">
-              <label class="field__label" for="brief-company">Компанія / сайт</label>
-              <input class="input" id="brief-company" name="company" type="text" autocomplete="organization">
+            <div class="form-grid form-grid--2">
+              <div class="field">
+                <label class="field__label" for="brief-phone">Телефон</label>
+                <input class="input" id="brief-phone" name="phone" type="tel" placeholder="+380 67 123 45 67" autocomplete="tel" aria-describedby="brief-phone-error">
+                <p class="field__error" id="brief-phone-error"></p>
+              </div>
+              <div class="field">
+                <label class="field__label" for="brief-company">Компанія / сайт</label>
+                <input class="input" id="brief-company" name="company" type="text" autocomplete="organization" aria-describedby="brief-company-error">
+                <p class="field__error" id="brief-company-error"></p>
+              </div>
             </div>
-            <div class="field">
-              <label class="field__label" for="brief-goal">Мета проєкту</label>
-              <textarea class="textarea" id="brief-goal" name="goal" rows="4" placeholder="Наприклад: збільшити кількість заявок із соцмереж"></textarea>
-            </div>
+              <div class="field">
+                <label class="field__label" for="brief-goal">Мета проєкту</label>
+                <textarea class="textarea" id="brief-goal" name="goal" rows="4" placeholder="Наприклад: збільшити кількість заявок із соцмереж" data-max="500" aria-describedby="brief-goal-error"></textarea>
+                <p class="field__error" id="brief-goal-error"></p>
+              </div>
           </fieldset>
-
-          <p class="form-status" role="status" aria-live="polite"></p>
 
           <div class="brief__actions">
             <button class="btn btn--outline btn--lg" type="button" data-brief="prev" hidden>Назад</button>
@@ -155,6 +184,7 @@
             <li>Проведемо вступну зустріч на 15 хвилин.</li>
             <li>Надішлемо пропозицію зі стратегією та кошторисом.</li>
           </ol>
+          <p class="aside-card__note">Відповіді зберігаються автоматично — можна повернутися до брифу пізніше.</p>
         </aside>
       </div>
     </section>
@@ -167,11 +197,11 @@
           <h2 class="site-footer__title" id="digest-title" data-en="GrowthPulse digest">Дайджест від GrowthPulse</h2>
           <form class="subscribe-form" novalidate data-form="subscribe">
             <div class="subscribe">
-              <label class="visually-hidden" for="subscribe-email">Ваш email</label>
-              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required>
+              <label class="visually-hidden" for="subscribe-email">Email</label>
+              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required aria-describedby="subscribe-email-error">
               <button class="btn btn--primary" type="submit" data-en="Subscribe">Підписатися</button>
             </div>
-            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="field__error" id="subscribe-email-error"></p>
           </form>
         </section>
 
@@ -191,5 +221,7 @@
       </div>
     </div>
   </footer>
+
+  <button class="to-top" type="button" aria-label="Повернутися нагору">↑</button>
 </body>
 </html>
