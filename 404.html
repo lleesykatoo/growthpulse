@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Помилка — GrowthPulse</title>
+  <meta name="description" content="Сторінку не знайдено або на сайті виникла помилка.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&amp;display=swap">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-en="Skip to content">Перейти до вмісту</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html" aria-label="GrowthPulse — на головну">Growth<span>Pulse</span></a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Головне меню">
+        <ul class="site-nav__list">
+          <li><a class="btn btn--primary btn--block" href="index.html" data-en="Home">Головна</a></li>
+          <li><a class="btn btn--primary btn--block" href="cases.html" data-en="Cases">Кейси</a></li>
+          <li><a class="btn btn--primary btn--block" href="blog.html" data-en="Blog">Блог</a></li>
+          <li><a class="btn btn--primary btn--block" href="consultation.html" data-en="Consultation">Консультація</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <div class="lang-switch" role="group" aria-label="Мова сайту">
+          <button class="lang-switch__btn" type="button" data-lang="uk" aria-pressed="true">UA</button>
+          <button class="lang-switch__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Відкрити меню">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="container error-page" aria-labelledby="page-title">
+      <h1 class="error-page__title" id="page-title" data-en="Something went wrong">На сайті виникла помилка</h1>
+      <p class="error-page__text">Напишіть нам, будь ласка, на пошту з приводу Ваших побажань: <a href="mailto:hello@growthpulse.ua">hello@growthpulse.ua</a></p>
+      <a class="btn btn--primary btn--lg" href="index.html" data-en="Back to home">На головну</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__inner">
+        <section aria-labelledby="digest-title">
+          <h2 class="site-footer__title" id="digest-title" data-en="GrowthPulse digest">Дайджест від GrowthPulse</h2>
+          <form class="subscribe-form" novalidate data-form="subscribe">
+            <div class="subscribe">
+              <label class="visually-hidden" for="subscribe-email">Ваш email</label>
+              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required>
+              <button class="btn btn--primary" type="submit" data-en="Subscribe">Підписатися</button>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <nav aria-label="Навігація у футері">
+          <ul class="footer-links">
+            <li><a href="cases.html" data-en="Cases">Кейси</a></li>
+            <li><a href="brief.html" data-en="Brief">Бриф</a></li>
+            <li><a href="consultation.html" data-en="Consultation">Консультація</a></li>
+            <li><a href="blog.html" data-en="Blog">Блог</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© 2026 GrowthPulse · UA / EN</p>
+        <p><a href="mailto:hello@growthpulse.ua">hello@growthpulse.ua</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

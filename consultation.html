@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Консультація — GrowthPulse</title>
+  <meta name="description" content="Забронюйте безкоштовну вступну зустріч на 15 хвилин з командою GrowthPulse.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&amp;display=swap">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-en="Skip to content">Перейти до вмісту</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html" aria-label="GrowthPulse — на головну">Growth<span>Pulse</span></a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Головне меню">
+        <ul class="site-nav__list">
+          <li><a class="btn btn--primary btn--block" href="index.html" data-en="Home">Головна</a></li>
+          <li><a class="btn btn--primary btn--block" href="cases.html" data-en="Cases">Кейси</a></li>
+          <li><a class="btn btn--primary btn--block" href="blog.html" data-en="Blog">Блог</a></li>
+          <li><a class="btn btn--primary btn--block" href="consultation.html" aria-current="page" data-en="Consultation">Консультація</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <div class="lang-switch" role="group" aria-label="Мова сайту">
+          <button class="lang-switch__btn" type="button" data-lang="uk" aria-pressed="true">UA</button>
+          <button class="lang-switch__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Відкрити меню">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head" aria-labelledby="page-title">
+      <div class="container">
+        <h1 id="page-title" data-en="15-minute intro call">Вступна зустріч 15 хвилин</h1>
+        <p class="page-head__lead">Оберіть зручний день і час — ми надішлемо запрошення на email.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight-top" aria-labelledby="booking-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="booking-title">Форма бронювання</h2>
+        <form class="booking" id="booking-form" novalidate aria-labelledby="booking-title">
+          <div class="calendar" id="calendar">
+            <div class="calendar__head">
+              <p class="calendar__month" id="calendar-month" aria-live="polite">Листопад 2026</p>
+              <div class="calendar__nav">
+                <button class="calendar__arrow" type="button" data-cal="prev" aria-label="Попередній місяць">‹</button>
+                <button class="calendar__arrow" type="button" data-cal="next" aria-label="Наступний місяць">›</button>
+              </div>
+            </div>
+            <div class="calendar__grid" id="calendar-grid" role="group" aria-labelledby="calendar-month">
+              <span class="calendar__weekday">Пн</span>
+              <span class="calendar__weekday">Вт</span>
+              <span class="calendar__weekday">Ср</span>
+              <span class="calendar__weekday">Чт</span>
+              <span class="calendar__weekday">Пт</span>
+              <span class="calendar__weekday">Сб</span>
+              <span class="calendar__weekday">Нд</span>
+            </div>
+            <div class="calendar__foot">
+              <span>Обрано</span>
+              <span class="calendar__time" id="calendar-picked">—</span>
+            </div>
+            <input type="hidden" name="date" id="booking-date">
+          </div>
+
+          <div class="stack">
+            <fieldset>
+              <legend class="field__label">Вільний час (Київ, UTC+2)</legend>
+              <div class="slots mt-6">
+              <div class="option">
+                <input class="option__input" type="radio" id="slot-0" name="time" value="10:00" required>
+                <label class="option__label" for="slot-0">10:00</label>
+              </div>
+              <div class="option">
+                <input class="option__input" type="radio" id="slot-1" name="time" value="11:00">
+                <label class="option__label" for="slot-1">11:00</label>
+              </div>
+              <div class="option">
+                <input class="option__input" type="radio" id="slot-2" name="time" value="12:30">
+                <label class="option__label" for="slot-2">12:30</label>
+              </div>
+              <div class="option">
+                <input class="option__input" type="radio" id="slot-3" name="time" value="14:00">
+                <label class="option__label" for="slot-3">14:00</label>
+              </div>
+              <div class="option">
+                <input class="option__input" type="radio" id="slot-4" name="time" value="15:30">
+                <label class="option__label" for="slot-4">15:30</label>
+              </div>
+              <div class="option">
+                <input class="option__input" type="radio" id="slot-5" name="time" value="17:00">
+                <label class="option__label" for="slot-5">17:00</label>
+              </div>
+              </div>
+            </fieldset>
+            <div class="form-grid form-grid--2">
+              <div class="field">
+                <label class="field__label" for="book-name">Ім'я</label>
+                <input class="input" id="book-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="book-email">Email</label>
+                <input class="input" id="book-email" name="email" type="email" autocomplete="email" placeholder="name@company.com" required>
+              </div>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+            <div class="btn-group">
+              <button class="btn btn--primary btn--lg" type="submit" data-en="Book a call">Забронювати</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__inner">
+        <section aria-labelledby="digest-title">
+          <h2 class="site-footer__title" id="digest-title" data-en="GrowthPulse digest">Дайджест від GrowthPulse</h2>
+          <form class="subscribe-form" novalidate data-form="subscribe">
+            <div class="subscribe">
+              <label class="visually-hidden" for="subscribe-email">Ваш email</label>
+              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required>
+              <button class="btn btn--primary" type="submit" data-en="Subscribe">Підписатися</button>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <nav aria-label="Навігація у футері">
+          <ul class="footer-links">
+            <li><a href="cases.html" data-en="Cases">Кейси</a></li>
+            <li><a href="brief.html" data-en="Brief">Бриф</a></li>
+            <li><a href="consultation.html" data-en="Consultation">Консультація</a></li>
+            <li><a href="blog.html" data-en="Blog">Блог</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© 2026 GrowthPulse · UA / EN</p>
+        <p><a href="mailto:hello@growthpulse.ua">hello@growthpulse.ua</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Блог — GrowthPulse</title>
+  <meta name="description" content="Експертні матеріали GrowthPulse про PR, SMM, брендинг і медіастратегії.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&amp;display=swap">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-en="Skip to content">Перейти до вмісту</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html" aria-label="GrowthPulse — на головну">Growth<span>Pulse</span></a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Головне меню">
+        <ul class="site-nav__list">
+          <li><a class="btn btn--primary btn--block" href="index.html" data-en="Home">Головна</a></li>
+          <li><a class="btn btn--primary btn--block" href="cases.html" data-en="Cases">Кейси</a></li>
+          <li><a class="btn btn--primary btn--block" href="blog.html" aria-current="page" data-en="Blog">Блог</a></li>
+          <li><a class="btn btn--primary btn--block" href="consultation.html" data-en="Consultation">Консультація</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <div class="lang-switch" role="group" aria-label="Мова сайту">
+          <button class="lang-switch__btn" type="button" data-lang="uk" aria-pressed="true">UA</button>
+          <button class="lang-switch__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Відкрити меню">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head" aria-labelledby="page-title">
+      <div class="container">
+        <h1 id="page-title" data-en="Blog">Блог</h1>
+      </div>
+    </section>
+
+    <section class="section section--tight-top" aria-label="Статті">
+      <div class="container">
+        <ul class="grid-cards">
+          <li>
+            <article class="card">
+              <div class="card__cover" aria-hidden="true"></div>
+              <p class="card__meta">#PR</p>
+              <h2 class="card__title">Як виміряти ROI PR-кампанії</h2>
+              <p class="card__text">Метрики, які показують реальний внесок PR у продажі.</p>
+              <p class="card__text"><small><time datetime="2026-10-14">14 жовтня 2026</time> · 6 хв читання</small></p>
+            </article>
+          </li>
+
+          <li>
+            <article class="card">
+              <div class="card__cover" aria-hidden="true"></div>
+              <p class="card__meta">#SMM</p>
+              <h2 class="card__title">Тренди SMM 2026</h2>
+              <p class="card__text">Короткі відео, UGC і спільноти: що працює цього року.</p>
+              <p class="card__text"><small><time datetime="2026-10-02">2 жовтня 2026</time> · 5 хв читання</small></p>
+            </article>
+          </li>
+
+          <li>
+            <article class="card">
+              <div class="card__cover" aria-hidden="true"></div>
+              <p class="card__meta">#Branding</p>
+              <h2 class="card__title">Брендбук: з чого почати</h2>
+              <p class="card__text">Покроковий план для компанії, яка вперше створює брендбук.</p>
+              <p class="card__text"><small><time datetime="2026-09-21">21 вересня 2026</time> · 7 хв читання</small></p>
+            </article>
+          </li>
+
+          <li>
+            <article class="card">
+              <div class="card__cover" aria-hidden="true"></div>
+              <p class="card__meta">#Strategy</p>
+              <h2 class="card__title">Медіастратегія для малого бізнесу</h2>
+              <p class="card__text">Як розподілити обмежений бюджет між каналами.</p>
+              <p class="card__text"><small><time datetime="2026-09-08">8 вересня 2026</time> · 8 хв читання</small></p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__inner">
+        <section aria-labelledby="digest-title">
+          <h2 class="site-footer__title" id="digest-title" data-en="GrowthPulse digest">Дайджест від GrowthPulse</h2>
+          <form class="subscribe-form" novalidate data-form="subscribe">
+            <div class="subscribe">
+              <label class="visually-hidden" for="subscribe-email">Ваш email</label>
+              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required>
+              <button class="btn btn--primary" type="submit" data-en="Subscribe">Підписатися</button>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <nav aria-label="Навігація у футері">
+          <ul class="footer-links">
+            <li><a href="cases.html" data-en="Cases">Кейси</a></li>
+            <li><a href="brief.html" data-en="Brief">Бриф</a></li>
+            <li><a href="consultation.html" data-en="Consultation">Консультація</a></li>
+            <li><a href="blog.html" data-en="Blog">Блог</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© 2026 GrowthPulse · UA / EN</p>
+        <p><a href="mailto:hello@growthpulse.ua">hello@growthpulse.ua</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

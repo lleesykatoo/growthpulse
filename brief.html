@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Бриф — GrowthPulse</title>
+  <meta name="description" content="Заповніть інтерактивний бриф із 4 кроків, і команда GrowthPulse підготує пропозицію.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&amp;display=swap">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-en="Skip to content">Перейти до вмісту</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html" aria-label="GrowthPulse — на головну">Growth<span>Pulse</span></a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Головне меню">
+        <ul class="site-nav__list">
+          <li><a class="btn btn--primary btn--block" href="index.html" data-en="Home">Головна</a></li>
+          <li><a class="btn btn--primary btn--block" href="cases.html" data-en="Cases">Кейси</a></li>
+          <li><a class="btn btn--primary btn--block" href="blog.html" data-en="Blog">Блог</a></li>
+          <li><a class="btn btn--primary btn--block" href="consultation.html" data-en="Consultation">Консультація</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <div class="lang-switch" role="group" aria-label="Мова сайту">
+          <button class="lang-switch__btn" type="button" data-lang="uk" aria-pressed="true">UA</button>
+          <button class="lang-switch__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Відкрити меню">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head" aria-labelledby="page-title">
+      <div class="container">
+        <a class="btn btn--primary" href="cases.html" data-en="Back">Назад</a>
+        <h1 class="visually-hidden" id="page-title">Бриф на співпрацю</h1>
+      </div>
+    </section>
+
+    <section class="section section--tight-top">
+      <div class="container layout-sidebar">
+        <form class="brief" id="brief-form" novalidate aria-labelledby="brief-title">
+          <h2 class="brief__title" id="brief-title">Бриф · крок <span data-step-current>1</span>/4</h2>
+          <div class="progress" role="progressbar" aria-label="Прогрес заповнення брифу" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1">
+            <span class="progress__bar"></span>
+          </div>
+
+          <fieldset class="brief__step" data-step="1">
+            <legend class="brief__question">Яка послуга потрібна?</legend>
+            <div class="option">
+              <input class="option__input" type="radio" id="service-0" name="service" value="pr" checked required>
+              <label class="option__label" for="service-0">PR</label>
+            </div>
+            <div class="option">
+              <input class="option__input" type="radio" id="service-1" name="service" value="smm">
+              <label class="option__label" for="service-1">SMM</label>
+            </div>
+            <div class="option">
+              <input class="option__input" type="radio" id="service-2" name="service" value="strategy">
+              <label class="option__label" for="service-2">Strategy</label>
+            </div>
+            <div class="option">
+              <input class="option__input" type="radio" id="service-3" name="service" value="branding">
+              <label class="option__label" for="service-3">Branding</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="brief__step" data-step="2">
+            <legend class="brief__question">Який орієнтовний бюджет на місяць?</legend>
+            <div class="option">
+              <input class="option__input" type="radio" id="budget-0" name="budget" value="lt1k" required>
+              <label class="option__label" for="budget-0">до $1 000</label>
+            </div>
+            <div class="option">
+              <input class="option__input" type="radio" id="budget-1" name="budget" value="1-3k">
+              <label class="option__label" for="budget-1">$1 000 – 3 000</label>
+            </div>
+            <div class="option">
+              <input class="option__input" type="radio" id="budget-2" name="budget" value="3-5k">
+              <label class="option__label" for="budget-2">$3 000 – 5 000</label>
+            </div>
+            <div class="option">
+              <input class="option__input" type="radio" id="budget-3" name="budget" value="gt5k">
+              <label class="option__label" for="budget-3">понад $5 000</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="brief__step" data-step="3">
+            <legend class="brief__question">Коли плануєте старт?</legend>
+            <div class="option">
+              <input class="option__input" type="radio" id="start-0" name="start" value="asap" required>
+              <label class="option__label" for="start-0">Якнайшвидше</label>
+            </div>
+            <div class="option">
+              <input class="option__input" type="radio" id="start-1" name="start" value="month">
+              <label class="option__label" for="start-1">Протягом місяця</label>
+            </div>
+            <div class="option">
+              <input class="option__input" type="radio" id="start-2" name="start" value="quarter">
+              <label class="option__label" for="start-2">Цього кварталу</label>
+            </div>
+            <div class="option">
+              <input class="option__input" type="radio" id="start-3" name="start" value="unknown">
+              <label class="option__label" for="start-3">Ще визначаємося</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="brief__step" data-step="4">
+            <legend class="brief__question">Контактні дані</legend>
+            <div class="form-grid form-grid--2">
+              <div class="field">
+                <label class="field__label" for="brief-name">Ім'я</label>
+                <input class="input" id="brief-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="brief-email">Email</label>
+                <input class="input" id="brief-email" name="email" type="email" autocomplete="email" placeholder="name@company.com" required>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="brief-company">Компанія / сайт</label>
+              <input class="input" id="brief-company" name="company" type="text" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label class="field__label" for="brief-goal">Мета проєкту</label>
+              <textarea class="textarea" id="brief-goal" name="goal" rows="4" placeholder="Наприклад: збільшити кількість заявок із соцмереж"></textarea>
+            </div>
+          </fieldset>
+
+          <p class="form-status" role="status" aria-live="polite"></p>
+
+          <div class="brief__actions">
+            <button class="btn btn--outline btn--lg" type="button" data-brief="prev" hidden>Назад</button>
+            <button class="btn btn--primary btn--lg" type="button" data-brief="next">Далі</button>
+            <button class="btn btn--primary btn--lg" type="submit" data-brief="submit">Надіслати бриф</button>
+          </div>
+        </form>
+
+        <aside class="aside-card" aria-labelledby="brief-aside-title">
+          <h2 class="aside-card__title" id="brief-aside-title">Що буде після брифу</h2>
+          <ol class="check-list">
+            <li>Менеджер зв'яжеться з вами протягом 1 робочого дня.</li>
+            <li>Проведемо вступну зустріч на 15 хвилин.</li>
+            <li>Надішлемо пропозицію зі стратегією та кошторисом.</li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__inner">
+        <section aria-labelledby="digest-title">
+          <h2 class="site-footer__title" id="digest-title" data-en="GrowthPulse digest">Дайджест від GrowthPulse</h2>
+          <form class="subscribe-form" novalidate data-form="subscribe">
+            <div class="subscribe">
+              <label class="visually-hidden" for="subscribe-email">Ваш email</label>
+              <input class="subscribe__input" id="subscribe-email" name="email" type="email" placeholder="growthpulseua@company.com" autocomplete="email" required>
+              <button class="btn btn--primary" type="submit" data-en="Subscribe">Підписатися</button>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <nav aria-label="Навігація у футері">
+          <ul class="footer-links">
+            <li><a href="cases.html" data-en="Cases">Кейси</a></li>
+            <li><a href="brief.html" data-en="Brief">Бриф</a></li>
+            <li><a href="consultation.html" data-en="Consultation">Консультація</a></li>
+            <li><a href="blog.html" data-en="Blog">Блог</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© 2026 GrowthPulse · UA / EN</p>
+        <p><a href="mailto:hello@growthpulse.ua">hello@growthpulse.ua</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
